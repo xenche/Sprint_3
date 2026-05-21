@@ -87,7 +87,8 @@ class OnlineSalesRegisterCollector:
     def total_tax(self):
         return self.twenty_percent_tax_calculation() + self.ten_percent_tax_calculation()
 
-    def get_telephone_number(self, telephone_number):
+    @staticmethod
+    def get_telephone_number(telephone_number):
         try:
             if not isinstance(telephone_number, int):
                 raise ValueError('Необходимо ввести цифры')
@@ -96,7 +97,6 @@ class OnlineSalesRegisterCollector:
             else:
                 result =  f'+7{telephone_number}'
         except ValueError as e:
-            #print(e)
             result = e
         return result
             
